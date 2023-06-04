@@ -1,0 +1,103 @@
+---
+title: "FIFA 2023 yılı futbolcu reytingleri analizi"
+author: 
+  - Elvin Shukurov[^1]
+bibliography: ../bibliography/biblio.bib
+csl: ../csl/apa-tr.csl
+header-includes:
+  - \usepackage{polyglossia}
+  - \setmainlanguage{turkish}
+  - \usepackage{booktabs}
+  - \usepackage{caption} 
+  - \captionsetup[table]{skip=10pt}
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    fig_height: 3
+    fig_width: 4
+    keep_tex: no
+    latex_engine: xelatex
+    number_sections: yes
+    toc: no
+geometry: margin=1in
+link-citations: yes
+urlcolor: blue
+fontsize: 12pt
+biblio-style: apalike
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+<!-- ======================================================================= -->
+<!-- ============================== NOTLAR ================================= -->
+<!-- ======================================================================= -->
+[^1]: 20080947, [Github Repo](https://github.com/ElvinShukurlu/arasinav.git)
+
+
+
+# Giriş
+
+Futbol genel olarak bakıldığınde en çok izlenilen sporlar arasında gelmektedir ve  ülkemizde de en çok takip edilen sporlar arasında birinci yerdedir. Tabii ki, bu kadar göz önünde olan bir sporla alakalı da bir çok araştırma, oyun, makale vs çıkarılmıştır.
+FIFA her yıl bu sporun video oyununu yapıyor ve bu oyunda oyuncuların o yıldaki gösterdikleri performanslara göre onların yeteneklerine 99 üzerinden(99 uygun gelen yetenek için maksimum, 1 ise minimum puana denk geliyor) bir puan veriyor. Bu analizde kullanılacak olan veri [FIFA](https://ratings-api.ea.com/v2/entities/fifa-23-ratings?filter=nationality%3A(48)&sort=ranking%3AASC&limit=50')'dan web kazıma yöntemi ile veride olan ülkelerin en iyi oyuncuları seçilerek çekilmiştir. Verimiz 378  gözlem ve 16 değişkenden oluşmaktadır.
+
+Veride uygun gelen oyuncunun ismi(name),doğum tarihi(birthdate),defans gücü(def),uzun vuruşları(longshots),oynadığı mevki(preferredposition1label), halihazırda oynadığı takımı, ülkesi(country),kısa pas ve uzun pas yeteneği(shortpassing and longpassing), vole yeteneği(volleys),denge seviyesi(balance),defansa katkı seviyesi(defensiveawareness), oyuncunun boyunun uzunluğu(height),bitiriciliği(finishing) ve koşu hızı(sprintspeed) yer almaktadır.
+
+```{r include=FALSE}
+library(tidyverse)
+library(readxl)
+veri <- read_excel('../data/futbol.xlsx')
+veri1 <- veri %>% select(birthdate, def,longshots,preferredposition1label,teamname,country,shortpassing,volleys,balance,shotpower,defensiveawareness,height,longpassing,finishing,sprintspeed)
+
+veri1$name <- paste(veri$firstname, veri$surname, sep = " ")
+
+
+
+#Web kazımayı python'da bildiğim için veriyi pythonla çektim o yüzden burada bir file paylaşamıyorum. Ancak yine de genel kod şu şekilde:
+#import pandas as pd
+#import json
+#import requests
+#from bs4 import BeautifulSoup as bs
+
+#url = 'https://ratings-api.ea.com/v2/entities/fifa-23-ratings?filter=nationality%3A(48)&sort=ranking%3AASC&limit=50'
+#r = requests.get(url)
+#bes = bs(r.text, 'html.parser')
+#json_data = json.loads(r.text)
+#data_docs = json_data['docs']
+
+
+#df = pd.DataFrame.from_dict(data_docs)
+#df['country'] = "Turkey"
+
+#df.to_excel(r'C:\Users\elvinsukur\Desktop/data/9.xlsx', index =False)
+
+```
+
+
+
+## Çalışmanın Amacı
+
+Kullanılan veri futbolun en çok yaygın olduğu ülkelerin genellikle en iyi oyuncularını kapsamaktadır. Çalışmada ülkelerin oyuncularının mevkilere göre, genel teknik göstericilere göre bir açık farkın olup olmadığı aranacaktır. Son Dünya kupasını kazanan ülkenin oyuncularının genel olarak diğer oyunculardan iyi olması t testi ile test edilecekdir. Son olarak ta oyuncunun yaşı ve boyunun diğer tekniki değişkenler arasında pozitif veya negatif korelasyon olup-olmadığı araştırılacaktır. Yaşlı oyuncuların, nispeten genç oyunculara göre belirgin olan bir özelliğinin olup-olmadığı araştırılacaktır.
+
+Genel olarak İtalyanın defansif odaklı, Arjantin ve Brezilyanın ise hücüm odaklı oynadığına göre bu özelliklerin diğer ülkelerden olan oyunculara göre fazla olacağını düşünüyorum ve bu çalışmada böyle bir tahmine dayanarak yapılan bir regresyon analizinin ne kadar güvenilir olduğu araştırılacaktır. 
+
+## Literatür 
+
+İnsan pratiği olarak futbol, tarihsel insan gerçeğini açıklamaya çalışan
+bilimsel girişimlerin konusudur.Futbol dahil herhangi bir insan faaliyetinin tarihinde, öncelikli olan, neyin hangi tarihte çıktığını bulmak değildir; önemli olan, hangi insan gereksiniminden kaynaklandığı, kimin gereksinimine yanıt verdiği, amacının
+ve aranan sonuçlarının ne olduğudur. Futbol, bir yerlerde birilerinin günlük
+yaşamlarını sürdürmeleri sırasında ortaya çıkan gereksinimi karşılamak için
+çıkmıştır. Bu gereksinim, bir grubun kendini gerçekleştirmesiyle ilgili
+olabileceği gibi gruplar ve geniş toplumsal yapılar arasındaki ilişkisel bir
+gereksinim de olabilir. Bu gereksinim bir başarıyı kutlamayla ilgili olabileceği
+gibi, bir ilişkiye başlangıç veya sonuçlandırma, bir egemenliği perçinleme, bir
+yönetimsel yapıyı yeniden üretme, metafizik güçlerle ilişki kurma ve yürütme
+ile ilgili bir gereksinim olabilir[@erdougan2008]. @nesser araştırmasında futbolcuların oyunlardaki performslarının onların fiziki durumlarında ziyade psikolojik durumlarına göre değiştiğini ileri sürmüştür. Yani futbolcu insiyatifleri de performanslarında önemli yeri kapsamaktadır.
+
+Dünya kupaları genel olarak futbolseverler tarafından futbolun en büyük ve en önemli organizasyonu olarak kabul edilir ve bu musabaka 4 yılda bir olmak üzere baş tutar. Ancak bu denli büyük musabakanın etkisi sadece futbol ilgililerine değildir. Dünya kupasının tek bir merkezi şehri yoktur her Dünya kupasının öncede kura ile belirlenen şehirde olması planlaştırılır. Bu kupanın da şehrin genel sakinlerine, işçilerine ve tüm ekonomisine olan etkisi incelendiğinde, ülkelerin ve insanların neden futbolu bu kadar sevdikleri anlaşılmaktadır[@torgler]. Futbol o kadar popüler bir spordur ki, bir çok ülkede spor olarak akla ilk gelendir.Toplumlar aslında futbolun sadece fiziksel performans olmadığını açıkça bilmektedirler. Futbol hakkında birçok resmi tanımlamalar bulunmaktadır, bu tanımlamaların yanı sıra futbola farklı bir bakış açısı değerlendirildiğinde; Futbol, kimine göre kendini bulma ve ifade
+etmenin, kimine göre hayattan kaçabilmenin, ‘bir nefes alabilmenin çaresi, hatta kimileri için AB’ye girmenin garantili reçetesidir[@onturk].
+
+\newpage
+# Kaynakça {#references}
+<div id="refs"></div>
+
