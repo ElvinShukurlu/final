@@ -25,7 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-  Analizimizi daha da spesifik kılmak için 144 değişkenden sadece 23 tanesini kullandık ve baştaki varsayımlarımızı test ettik. Özet istatistikler tablosuna göre spesifik özelliklerin standart sapmalarının yani, total farklılaşmanın diğerlerine göre daha fazla olduğunu görüyoruz. Boy değişkeninse en az genel olarak aynı kaldığını, yani standart sapma değerinin çok az olduğunu gördük. Son dünya şampiyonu Arjantinin diğer ülkelere göre penaltılarda çok da farklılaşmadığını, hatta yendiği Fransadan daha düşük skorlara sahip olduğunu gözlemledik. Bu aslında futbolda skorun oyuncuların anlık duygu değişimlerine bağlı olduğunu söylüyor. Ayrıca İtalya defansının ve Brezilya hücumunun diğerlerinden yüksek olacağını varsaymıştık, ancak bu varsayımda da yanıldığımızı gözlemledik.
+  Futbol, on birer oyuncudan oluşan iki takım arasında, kendine özgü küresel bir topla oynanan takım sporudur. 21. yüzyıl itibarıyla 200'ün üzerinde ülkede 250 milyonu aşkın oyuncu tarafından oynanmakta olup dünyadaki en popüler spordur. Analizimizi daha da spesifik kılmak için 144 değişkenden sadece 23 tanesini kullandık ve baştaki varsayımlarımızı test ettik. Özet istatistikler tablosuna göre spesifik özelliklerin standart sapmalarının yani, total farklılaşmanın diğerlerine göre daha fazla olduğunu görüyoruz. Boy değişkenininse en az genel olarak aynı kaldığını, yani standart sapma değerinin çok az olduğunu gördük. Son dünya şampiyonu Arjantinin diğer ülkelere göre penaltılarda çok da farklılaşmadığını, hatta yendiği Fransadan daha düşük skorlara sahip olduğunu gözlemledik. Bu aslında futbolda skorun oyuncuların anlık duygu değişimlerine bağlı olduğunu söylüyor. Ayrıca İtalya defansının ve Brezilya hücumunun diğerlerinden yüksek olacağını varsaymıştık, ancak bu varsayımda da yanıldığımızı gözlemledik. Futbol tarihine de baktığımızda iyi defans oyuncularının(Ramos, Pique, Cannavaro, Maldini, Nesta, Pepe, Van Dijk) diğerlerinden daha cüsseli ve güçlü olması beklenilir. Genelde de defans puanıyla güç ve boy arasında anlamlı pozitif korelasyon katsayısının olduğunu da gördük.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -71,11 +71,11 @@ etmenin, kimine göre hayattan kaçabilmenin, ‘bir nefes alabilmenin çaresi, 
 
 # Veri 
 
-Tablo \ref{tab:ozet}'e bakarsak oyuncuların yaş ortalamasının 28 ve standart sapmasınln da 3.98 olduğunu görüyoruz. Yani genel olarak dağılımda yüksek bir sapma değeri yoktur. Ortanca yaş değeri ise 29 yaştır. Seçilen oyuncuların genel olarak boylarının ortalamasının 182.25 santimetre ve sapmasının da 6.86 olduğunu görüyoruz. Bu sapma değerine bakılırsa en az sapmanın boy değişkeninde olduğunu söyleye biliriz.
+Tablo \ref{tab:ozet}'e bakarsak oyuncuların yaş ortalamasının 28 ve standart sapmasının da 3.98 olduğunu görüyoruz. Yani genel olarak dağılımda yüksek bir sapma değeri yoktur. Ortanca yaş değeri ise 29 yaştır. Seçilen oyuncuların genel olarak boylarının ortalamasının 182.25 santimetre ve sapmasının da 6.86 olduğunu görüyoruz. Bu sapma değerine bakılırsa en az sapmanın boy değişkeninde olduğunu söyleye biliriz.
 
-Diğer 4 değişken aynı aralıklarda belirlendiği için bunları birlikte yorumlarsak genel ortalamada koşu hızının en yüksek değerde olduğunu görüyoruz. Yani diğer değişkenler kayde alınmaksızın genel futbolcu özelliği olarak koşu hızlı en yüksek değeri alıyor. Ayrıca sapmasının da diğerlerine göre az olması bunu bir daha tastikliyor. Maksimumda da en yüksek değeri yine 97 puanla koşu hızı alıyor. Uzun pasın da totalde koşu hızına benzer istatistikleri var ancak minimumda daha aşağı puan aldığını görüyoruz.
+Diğer 4 değişken aynı aralıklarda belirlendiği için bunları birlikte yorumlarsak, genel ortalamada koşu hızının en yüksek değerde olduğunu görüyoruz. Yani diğer değişkenler kayde alınmaksızın genel futbolcu özelliği olarak koşu hızlı en yüksek değeri alıyor. Ayrıca sapmasının da diğerlerine göre az olması bunu bir daha doğruluyor. Maksimumda da en yüksek değeri yine 97 puanla koşu hızı alıyor. Uzun pasın da totalde koşu hızına benzer istatistikleri var, ancak minimumda daha aşağı puan aldığını görüyoruz.
 
-Genel olarak santraforlara özel olan bitiriciliğin ortalamada ve minimumda en düşük puan aldığını görüyoruz. Bu da yeteneğin spesifkiliği ile alakalıdır. Standart sapması da diğer değişkenlere göre en yüksek olanıdır. Standart sapmasının bu denli yüksek olmasını ortalama ve ortanca değer arasındaki farktan da göre biliriz. Totalde diğer spesifik özellik olan defansla bezner puanları paylaşıyor.
+Genel olarak santraforlara özel olan bitiriciliğin ortalamada ve minimumda en düşük puan aldığını görüyoruz. Bu da yeteneğin spesifkiliği ile alakalıdır ve standart sapması da diğer değişkenlere göre en yüksek olanıdır. Standart sapmasının bu denli yüksek olmasını ortalama ve ortanca değer arasındaki farktan da göre biliriz. Totalde diğer spesifik özellik olan defansla benzer puanları paylaşıyor.
 
 ```{r include=FALSE}
 library(tidyverse)
@@ -120,12 +120,12 @@ veri1 %>%
 \newpage
 # Yöntem ve Veri Analizi
 
-Son dünya kupası kazananı Arjantin rakibi Fransayı finalde penaltılarda yenmişti. Bu yüzden genel ülkelere göre oyuncuların penaltı skorlarına bakacak olursak, beklenilenin aksine Grafik \@ref(fig:PLOTtt)'den de görüldüğü gibi Arjantin ikinci sıradadır ve Fransadan daha az skorlara sahip oyuncuları vardır. T testiyle Arjantinli oyuncuların penaltı atma konusunda daha iyi olduklarına bakılırsa da P değerinin 0.88 olduğunu buluyoruz, ki bu da grafikte gördüğümüzü bir daha tastikliyor. Yani Arjantinin penaltıda Fransadan iyi olduğu söylenemez.
+Son dünya kupası kazananı Arjantin rakibi Fransayı finalde penaltılarda yenmişti. Bu yüzden genel ülkelere göre oyuncuların penaltı skorlarına bakacak olursak, beklenilenin aksine Grafik \@ref(fig:PLOTtt)'den de görüldüğü gibi Arjantin ikinci sıradadır ve ortalamada Fransadan daha az skorlara sahip oyuncuları vardır. T testiyle Arjantinli oyuncuların penaltı atma konusunda daha iyi olduklarına bakılırsa tablo \@ref(tab:tablo2)'den P değerinin 0.89 olduğunu buluyoruz ki, bu da grafikte gördüğümüzü bir daha doöruluyor. Yani Arjantinin penaltıda Fransadan iyi olduğu söylenemez. 
 
 
 
 
-```{r include=FALSE}
+```{r, echo=FALSE, results='asis'}
 new_data <- veri1 %>%
   group_by(country) %>%
   top_n(22, penalties) %>%
@@ -137,7 +137,24 @@ t_test_result <- t.test(argentina_penalties, france_penalties, alternative = "gr
 
 p_value <- t_test_result$p.value
 
-p_value
+
+
+p_value_table <- data.frame(
+  country1 = "Argentina",
+  country2 = "France",
+  p_value = p_value
+)
+
+
+library(schoRsch)
+library(xtable)
+
+table_x <- xtable(p_value_table)
+attr(table_x, "caption") <- "Arjantin Fransa Oyuncuları Penaltı Skoru Farkı"
+attr(table_x, "label") <- "tab:tablo2"
+
+
+print.xtable(table_x, include.rownames = FALSE, comment = FALSE)
 
 ```
 
@@ -159,7 +176,7 @@ country_medians$country <- factor(country_medians$country, levels = country_medi
 
 ggplot(country_medians, aes(x = country, y = median_penalties)) +
   geom_bar(stat = "identity", fill = "#FFC300", width = 0.6) +
-  labs(x = "Country", y = "Penalties(Median)") +
+  labs(x = "Ülke", y = "Penaltı(Medyan)") +
   theme_minimal() +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1, size = 12, color = "black"),
@@ -178,7 +195,7 @@ ggplot(country_medians, aes(x = country, y = median_penalties)) +
   coord_cartesian(ylim = c(0, max(country_medians$median_penalties) * 1.1)) 
 ```
 
-Grafik \@ref(fig:PLOT)'den en yüksek korelasyon oranının uzun şut skoru ile hızlanma arasında olduğunu görüyoruz.Hızlanmanın daha çok ofansif futbolculara has bir özellik olduğundan onların daha iyi vuruşlar yapması normal bir sonuçtur. Aynı şekilde hızlanma  ile yaş arasında beklenen doğrultuda çok ileri seviyede olmayan anlamlı bir negatif korelasyon değeri olduğunu görüyoruz. Gerektiği gibi yüksek yaşın top kontrölü azalmasına ve hızlanmanın azalmasına etki ettiğini söyleye biliriz.  Oyuncunun yaşı ile güç,boy,defans ve uzun şutların arasında anlamlı bir korelasyon değerinin olmadığını görüyoruz.  Genel olarak defans oyuncularının diğer oyunculara göre daha güçlü olması ve uzun olması varsayılır ki, budeğişkenler arasında da anlamlı pozitif korelasyon olduğunu görüyoruz. Aynı zamanda hızlanma ile oyuncunun boyu ve gücü arasında  negatif korelasyon olduğunu gözlemleye biliriz. Yani bu değişkenler arasında ters yönde bir ilişki vardır.
+Grafik \@ref(fig:PLOT)'den en yüksek korelasyon oranının uzun şut skoru ile hızlanma arasında olduğunu görüyoruz. Hızlanmanın daha çok ofansif futbolculara has bir özellik olduğundan onların daha iyi vuruşlar yapması normal bir sonuçtur. Aynı şekilde hızlanma  ile yaş arasında beklenen doğrultuda çok ileri seviyede olmayan anlamlı bir negatif korelasyon değeri olduğunu görüyoruz. Gerektiği gibi yüksek yaşın top kontrölü azalmasına ve hızlanmanın azalmasına etki ettiğini söyleye biliriz.  Oyuncunun yaşı ile güç,boy,defans ve uzun şutların arasında anlamlı bir korelasyon değerinin olmadığını görüyoruz.  Genel olarak defans oyuncularının diğer oyunculara göre daha güçlü olması ve uzun olması varsayılır ki, bu değişkenler arasında da anlamlı pozitif korelasyon olduğunu görüyoruz. Aynı zamanda hızlanma ile oyuncunun boyu ve gücü arasında  negatif korelasyon olduğunu gözlemleye biliriz. Yani bu değişkenler arasında ters yönde bir ilişki vardır.
 
 
 ```{r PLOT, echo=FALSE, fig.height=5, fig.width=7, fig.cap="Genel Korelasyon Tablosu"}
@@ -208,7 +225,7 @@ veri2 %>%
   ggplot(aes(x = country, y = def, fill = country)) +
   geom_boxplot() +
   scale_fill_manual(values = c("#FF6F61", "#6B5B95", "#88B04B", "#FFB07C", "#52796F", "#F6AE2D", "#B565A7", "#C3C3E5", "#B39EB5")) +
-  labs(x = "Country", y = "Defence") +
+  labs(x = "Ülke", y = "Defahs Skoru") +
   theme_minimal() +
   theme(
     panel.grid.major = element_blank(),
@@ -239,7 +256,7 @@ veri3 %>%
   ggplot(aes(x = country, y = sho, fill = country)) +
   geom_boxplot() +
   scale_fill_manual(values = c("#FF6F61", "#6B5B95", "#88B04B", "#FFB07C", "#52796F", "#F6AE2D", "#B565A7", "#C3C3E5", "#B39EB5")) +
-  labs(x = "Country", y = "Shooting") +
+  labs(x = "Ülke", y = "Topa Vuruş Skoru") +
   theme_minimal() +
   theme(
     panel.grid.major = element_blank(),
@@ -263,7 +280,7 @@ Yani bu değişkenler arasında aynı yönde bir ilişki vardır. Başta İtalya
 
 Son dünya şampiyonu Arjantin rakibi Fransayı penaltılarda mağlup etmişti ve Arjantili oyuncuların penaltı atmadaki skorunun daha iyi olacağı bekleniyordu. Ancak grafikte gördüğümüz üzere genel olarak Fransalı oyuncuların penaltı skorları daha yüksektir. 
 
-Veri sayısı oyuncunun mevkisi açısından ve diğer bazı değişkenler açısından kapsamlı analiz yapmaya izin vermiyor. Veri genişletilirse bu konularda da analiz yappıla bilir. Ayrıca oyuncunun oyundaki anlık ruh değişiminin oyuna önemli ölçüde etki ettiğini düşünüyorum. Oyunculara oyundaki duygu değişimlerini gösteren bir cihaz yerleştirilirse anlık sonuçları tahmin etmek için modeller kurula bilir.
+Veri sayısı oyuncunun mevkisi açısından ve diğer bazı değişkenler açısından kapsamlı analiz yapmaya izin vermiyor. Veri genişletilirse bu konularda da analiz yapıla bilir. Ayrıca oyuncunun oyundaki anlık ruh değişiminin oyuna önemli ölçüde etki ettiğini düşünüyorum. Oyunculara oyundaki duygu değişimlerini gösteren bir cihaz yerleştirilirse anlık sonuçları tahmin etmek için modeller kurula bilir.
 
 \newpage
 # Kaynakça {#references}
